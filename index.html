@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta de tarifas — Atención de fallas y Mantenimiento preventivo 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0F1B2D;
+    --navy-soft:#16273D;
+    --ink:#1B2733;
+    --ink-soft:#5B6B7A;
+    --line:#DCE2E8;
+    --paper:#F7F8FA;
+    --white:#FFFFFF;
+    --teal:#2FA88A;
+    --teal-dark:#1F7D66;
+    --amber:#C98A2E;
+    --loss:#C24C3D;
+
+    --c-p2:#E1543B;
+    --c-p3:#E08A4E;
+    --c-b1:#D3A94F;
+    --c-b2:#8FAE6E;
+    --c-b3:#3E9C87;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    font-variant-numeric:tabular-nums;
+    line-height:1.55;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk', system-ui, sans-serif;
+    font-weight:600;
+    margin:0;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px;}
+  p{margin:0 0 12px;color:var(--ink);}
+  .lede{color:var(--ink-soft);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:linear-gradient(165deg, var(--navy) 0%, var(--navy-soft) 100%);
+    color:#EDF1F5;
+    padding:64px 0 48px;
+  }
+  .hero .tag{
+    font-size:15px;
+    color:#9FB2C4;
+    margin-bottom:14px;
+  }
+  .hero h1{
+    font-size:38px;
+    line-height:1.15;
+    color:#FFFFFF;
+    max-width:14ch;
+  }
+  .hero .lede{
+    color:#B7C4D1;
+    max-width:56ch;
+    margin-top:16px;
+    font-size:16px;
+  }
+  .stat-row{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:rgba(255,255,255,0.12);
+    margin-top:36px;
+    border-radius:2px;
+    overflow:hidden;
+  }
+  .stat{
+    background:var(--navy);
+    padding:20px 22px;
+  }
+  .stat .num{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:26px;
+    font-weight:600;
+    color:#FFFFFF;
+  }
+  .stat .num.up{color:var(--teal);}
+  .stat .label{
+    font-size:13px;
+    color:#9FB2C4;
+    margin-top:4px;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:52px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:24px;
+    margin-bottom:24px;
+  }
+  .section-head h2{font-size:22px;color:var(--ink);}
+  .section-head .n{
+    font-family:'Space Grotesk', sans-serif;
+    color:var(--ink-soft);
+    font-size:14px;
+  }
+  .col-2{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:40px;
+  }
+
+  /* ---------- METHOD STEPS ---------- */
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+    margin-top:8px;
+  }
+  .step{
+    border-left:2px solid var(--teal);
+    padding-left:16px;
+  }
+  .step .idx{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:13px;
+    color:var(--teal-dark);
+    font-weight:600;
+    margin-bottom:6px;
+  }
+  .step h3{font-size:16px;margin-bottom:6px;}
+  .step p{font-size:14px;color:var(--ink-soft);margin:0;}
+
+  /* ---------- TABLES ---------- */
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14.5px;
+  }
+  th,td{
+    text-align:right;
+    padding:11px 10px;
+    border-bottom:1px solid var(--line);
+  }
+  th:first-child,td:first-child{text-align:left;}
+  thead th{
+    color:var(--ink-soft);
+    font-weight:500;
+    font-size:12.5px;
+    border-bottom:1px solid var(--ink);
+    padding-bottom:9px;
+  }
+  tbody tr:last-child td{border-bottom:none;}
+  .clase-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-weight:600;
+  }
+  .dot{width:9px;height:9px;border-radius:50%;flex:none;}
+  .margin-pos{color:var(--teal-dark);font-weight:500;}
+  tfoot td{
+    border-top:1.5px solid var(--ink);
+    border-bottom:none;
+    font-weight:600;
+    padding-top:13px;
+  }
+
+  /* ---------- BARS ---------- */
+  .bars{margin-top:28px;}
+  .bar-row{
+    display:grid;
+    grid-template-columns:56px 1fr 150px;
+    align-items:center;
+    gap:14px;
+    padding:9px 0;
+  }
+  .bar-row .name{font-size:13.5px;font-weight:600;}
+  .bar-track{
+    background:#E9EDF1;
+    height:22px;
+    position:relative;
+    border-radius:2px;
+    overflow:hidden;
+  }
+  .bar-fill{
+    position:absolute;left:0;top:0;bottom:0;
+    display:flex;align-items:center;
+    border-radius:2px;
+  }
+  .bar-fill.cost{opacity:0.45;}
+  .bar-figs{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    text-align:right;
+  }
+  .legend{
+    display:flex;gap:22px;margin-top:16px;font-size:12.5px;color:var(--ink-soft);
+  }
+  .legend span{display:inline-flex;align-items:center;gap:6px;}
+  .legend .sw{width:12px;height:12px;border-radius:2px;}
+
+  /* ---------- PAYMENT STRUCTURE ---------- */
+  .fixed-panel{
+    background:var(--navy);
+    color:#EDF1F5;
+    padding:30px 32px;
+    border-radius:2px;
+  }
+  .fixed-panel .label{font-size:13.5px;color:#9FB2C4;margin-bottom:8px;}
+  .fixed-panel .amount{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:40px;
+    font-weight:700;
+    color:#FFFFFF;
+  }
+  .fixed-panel .breakdown{
+    margin-top:16px;
+    padding-top:16px;
+    border-top:1px solid rgba(255,255,255,0.16);
+    font-size:13.5px;
+    color:#C3D0DB;
+  }
+  .fixed-panel .breakdown div{display:flex;justify-content:space-between;padding:3px 0;}
+
+  .var-cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+    margin-top:20px;
+  }
+  .var-card{
+    border:1px solid var(--line);
+    background:var(--white);
+    padding:18px 18px 20px;
+    border-top:3px solid var(--c-b1);
+  }
+  .var-card.b2{border-top-color:var(--c-b2);}
+  .var-card.b3{border-top-color:var(--c-b3);}
+  .var-card .name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;}
+  .var-card .price{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:28px;
+    font-weight:700;
+    margin:8px 0 4px;
+  }
+  .var-card .per{font-size:12.5px;color:var(--ink-soft);}
+  .var-card .foot{
+    margin-top:12px;padding-top:12px;border-top:1px solid var(--line);
+    font-size:12.5px;color:var(--ink-soft);
+  }
+
+  /* ---------- COMPARISON ---------- */
+  .compare-note{
+    background:#FBF1EE;
+    border-left:3px solid var(--loss);
+    padding:14px 18px;
+    font-size:14px;
+    margin-top:18px;
+  }
+  .compare-note b{color:var(--loss);}
+
+  footer{
+    padding:32px 0 48px;
+    font-size:12.5px;
+    color:var(--ink-soft);
+  }
+
+  @media (max-width:720px){
+    .hero h1{font-size:29px;max-width:none;}
+    .stat-row{grid-template-columns:1fr;}
+    .col-2{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr;}
+    .var-cards{grid-template-columns:1fr;}
+    .bar-row{grid-template-columns:44px 1fr;}
+    .bar-figs{grid-column:2;text-align:left;}
+  }
+
+  /* ---------- MASTHEAD ---------- */
+  .masthead{
+    background:var(--white);
+    border-bottom:1px solid var(--line);
+  }
+  .masthead .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    padding:18px 28px;
+  }
+  .masthead-brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .masthead-brand img{
+    height:44px;
+    width:auto;
+    flex:none;
+  }
+  .masthead-brand .brand-text .company{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:15px;
+    color:var(--navy);
+    line-height:1.25;
+  }
+  .masthead-brand .brand-text .role{
+    font-size:12px;
+    color:var(--ink-soft);
+    margin-top:1px;
+  }
+  .masthead-for{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex:none;
+  }
+  .masthead-for .for-label{
+    text-align:right;
+  }
+  .masthead-for .for-label .k{
+    font-size:11px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .masthead-for .for-label .v{
+    font-size:13px;
+    font-weight:600;
+    color:var(--ink);
+    margin-top:1px;
+  }
+  .masthead-for .divider{
+    width:1px;
+    height:32px;
+    background:var(--line);
+  }
+  .masthead-for img{
+    height:26px;
+    width:auto;
+    flex:none;
+  }
+
+  @media (max-width:560px){
+    .masthead .wrap{flex-direction:column;align-items:flex-start;padding:16px 20px;gap:14px;}
+    .masthead-for{align-self:stretch;justify-content:flex-end;}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="masthead-brand">
+      <img src="mv_logo.svg" alt="Logo Proyectos e Inversiones MV Miranda C.A.">
+      <div class="brand-text">
+        <div class="company">Proyectos e Inversiones MV Miranda C.A.</div>
+        <div class="role">Propuesta de tarifas — atención de fallas y mantenimiento preventivo</div>
+      </div>
+    </div>
+    <div class="masthead-for">
+      <div class="for-label">
+        <div class="k">Presentado a</div>
+        <div class="v">Telefónica Movistar</div>
+      </div>
+      <div class="divider"></div>
+      <img src="telefonica_logo.svg" alt="Logo Telefónica Movistar">
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="tag">Proyecto FLM, Telefónica Movistar</div>
+    <h1>Propuesta de tarifas — atención de fallas y mantenimiento preventivo</h1>
+    <p class="lede">Estructura de precios por clasificación (P2, P3, B1, B2, B3) para atención de fallas y para mantenimiento preventivo (Integral y Esencial), calculada sobre el costo real de intervención, un margen de operación y un ajuste por devaluación del dólar. Incluye además la gestión logística de materiales e insumos, un cargo único que cubre ambas líneas de servicio. Todo se contrasta con el esquema de pago vigente.</p>
+
+    <div class="stat-row">
+      <div class="stat">
+        <div class="num">137</div>
+        <div class="label">estaciones atendidas por mes en fallas, promedio ene–ago 2026</div>
+      </div>
+      <div class="stat">
+        <div class="num">$110.513,88</div>
+        <div class="label">pago mensual total bajo el esquema anterior (fallas + mantenimiento preventivo)</div>
+      </div>
+      <div class="stat">
+        <div class="num up">$229.202,66</div>
+        <div class="label">pago mensual total propuesto (+107,4%): fallas + mantenimiento preventivo + gestión logística</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Cómo se calculó cada tarifa</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="idx">01</div>
+        <h3>Costo por clasificación</h3>
+        <p>La falla P2 cuesta en promedio $800 (especialistas, traslado, materiales). Las demás clases atienden estaciones más cercanas y con menos equipos, así que su costo se estimó como una fracción de ese valor: P3 75%, B1 50%, B2 40% y B3 30%.</p>
+      </div>
+      <div class="step">
+        <div class="idx">02</div>
+        <h3>Margen y devaluación</h3>
+        <p>Sobre el costo se aplica un incremento del 40%: cubre el margen de utilidad de la operación y protege el ingreso frente a la pérdida de poder adquisitivo del dólar durante la vigencia del contrato.</p>
+      </div>
+      <div class="step">
+        <div class="idx">03</div>
+        <h3>Precio por clase</h3>
+        <p>El resultado es la tarifa propuesta por atención. Se aplica igual a las clases con pago fijo (P2, P3) y a las de pago variable (B1, B2, B3), así que el margen es el mismo, 40%, para todas.</p>
+      </div>
+      <div class="step">
+        <div class="idx">04</div>
+        <h3>Cantidades de P2 y P3</h3>
+        <p>El volumen mensual de P2 (20) y P3 (28) no se calcula sobre el histórico: lo fija el propio pliego de licitación del cliente. El fijo mensual se construye multiplicando esas cantidades por el precio de cada clase, no por un promedio ni una holgura estimada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Costo, precio y margen por clasificación</h2>
+      <div class="n">volumen promedio, ene–ago 2026</div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Clase</th>
+          <th>Vol. prom./mes</th>
+          <th>Costo estimado</th>
+          <th>Precio propuesto</th>
+          <th>Margen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="clase-tag"><span class="dot" style="background:var(--c-p2)"></span>P2</span></td>
+          <td>11</td>
+          <td>$800</td>
+          <td>$1.120</td>
+          <td class="margin-pos">$320 · 40%</td>
+        </tr>
+        <tr>
+          <td><span class="clase-tag"><span class="dot" style="background:var(--c-p3)"></span>P3</span></td>
+          <td>27</td>
+          <td>$600</td>
+          <td>$840</td>
+          <td class="margin-pos">$240 · 40%</td>
+        </tr>
+        <tr>
+          <td><span class="clase-tag"><span class="dot" style="background:var(--c-b1)"></span>B1</span></td>
+          <td>47</td>
+          <td>$400</td>
+          <td>$560</td>
+          <td class="margin-pos">$160 · 40%</td>
+        </tr>
+        <tr>
+          <td><span class="clase-tag"><span class="dot" style="background:var(--c-b2)"></span>B2</span></td>
+          <td>23</td>
+          <td>$320</td>
+          <td>$448</td>
+          <td class="margin-pos">$128 · 40%</td>
+        </tr>
+        <tr>
+          <td><span class="clase-tag"><span class="dot" style="background:var(--c-b3)"></span>B3</span></td>
+          <td>30</td>
+          <td>$240</td>
+          <td>$336</td>
+          <td class="margin-pos">$96 · 40%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="bars">
+      <div class="bar-row">
+        <div class="name">P2</div>
+        <div class="bar-track">
+          <div class="bar-fill cost" style="width:71.4%;background:var(--c-p2)"></div>
+          <div class="bar-fill" style="width:0;"></div>
+        </div>
+        <div class="bar-figs">costo $800 · precio $1.120</div>
+      </div>
+      <div class="bar-row">
+        <div class="name">P3</div>
+        <div class="bar-track">
+          <div class="bar-fill cost" style="width:53.6%;background:var(--c-p3)"></div>
+        </div>
+        <div class="bar-figs">costo $600 · precio $840</div>
+      </div>
+      <div class="bar-row">
+        <div class="name">B1</div>
+        <div class="bar-track">
+          <div class="bar-fill cost" style="width:35.7%;background:var(--c-b1)"></div>
+        </div>
+        <div class="bar-figs">costo $400 · precio $560</div>
+      </div>
+      <div class="bar-row">
+        <div class="name">B2</div>
+        <div class="bar-track">
+          <div class="bar-fill cost" style="width:28.6%;background:var(--c-b2)"></div>
+        </div>
+        <div class="bar-figs">costo $320 · precio $448</div>
+      </div>
+      <div class="bar-row">
+        <div class="name">B3</div>
+        <div class="bar-track">
+          <div class="bar-fill cost" style="width:21.4%;background:var(--c-b3)"></div>
+        </div>
+        <div class="bar-figs">costo $240 · precio $336</div>
+      </div>
+    </div>
+    <p style="font-size:12.5px;color:var(--ink-soft);margin-top:10px;">La barra sombreada marca el costo dentro del precio propuesto ($1.120 de P2 como referencia de escala completa); el resto es el margen del 40%.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Estructura de pago propuesta</h2>
+    </div>
+    <div class="col-2">
+      <div class="fixed-panel">
+        <div class="label">Monto fijo mensual — P2 y P3</div>
+        <div class="amount">$45.920</div>
+        <div class="breakdown">
+          <div><span>P2 — 20 fallas × $1.120</span><span>$22.400</span></div>
+          <div><span>P3 — 28 fallas × $840</span><span>$23.520</span></div>
+        </div>
+        <div class="breakdown" style="border-top:none;padding-top:0;margin-top:6px;">
+          <div><span>Cantidades</span><span>fijadas por la licitación</span></div>
+        </div>
+      </div>
+      <div>
+        <p>Las cantidades de P2 (20) y P3 (28) no son un promedio ni una estimación propia: son las que establece la licitación del cliente, así que el fijo se calcula directamente sobre ellas.</p>
+        <p style="margin-bottom:0;">Vale notar que 20 P2 al mes es casi el doble del promedio real observado en 2026 (11): el pliego ya contempla una capacidad mayor a la demanda histórica, lo que da margen adicional a favor de la operación.</p>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-top:44px;">
+      <h2 style="font-size:18px;">Tarifa variable — B1, B2 y B3</h2>
+      <div class="n">se cobra por cada atención ejecutada</div>
+    </div>
+    <div class="var-cards">
+      <div class="var-card b1">
+        <div class="name">B1</div>
+        <div class="price">$560</div>
+        <div class="per">por atención</div>
+        <div class="foot">costo $400 · 47 atenciones/mes en promedio</div>
+      </div>
+      <div class="var-card b2">
+        <div class="name">B2</div>
+        <div class="price">$448</div>
+        <div class="per">por atención</div>
+        <div class="foot">costo $320 · 23 atenciones/mes en promedio</div>
+      </div>
+      <div class="var-card b3">
+        <div class="name">B3</div>
+        <div class="price">$336</div>
+        <div class="per">por atención</div>
+        <div class="foot">costo $240 · 30 atenciones/mes en promedio</div>
+      </div>
+    </div>
+    <p style="font-size:12.5px;color:var(--ink-soft);margin-top:18px;">La gestión logística de materiales e insumos no está incluida en estos montos: al ser un cargo compartido con mantenimiento preventivo, se presenta como una sección independiente más adelante en este documento.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Atención de fallas frente al esquema anterior</h2>
+      <div class="n">no incluye gestión logística — ver sección aparte</div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Concepto</th>
+          <th>Esquema anterior</th>
+          <th>Propuesta</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Fijo mensual — P2 y P3</td>
+          <td>$75.750,01 (P2+P3+B1+B2, sobre volumen real)</td>
+          <td>$45.920,00 (20 P2 + 28 P3, cantidades de licitación)</td>
+        </tr>
+        <tr>
+          <td>Variable</td>
+          <td>$157,22 por B3</td>
+          <td>$560 B1 · $448 B2 · $336 B3</td>
+        </tr>
+        <tr>
+          <td>Variable mensual, a volumen promedio</td>
+          <td>$4.716,60</td>
+          <td>$46.704,00</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>Total mensual estimado — atención de fallas</td>
+          <td>$80.466,61</td>
+          <td>$92.624,00</td>
+        </tr>
+      </tfoot>
+    </table>
+    <div class="compare-note">
+      La tarifa anterior de B3, $157,22, quedaba <b>por debajo del costo estimado de esa atención ($240)</b>: cada B3 atendida generaba una pérdida cercana a $83. La propuesta corrige ese punto y fija P2 y P3 según las cantidades del propio pliego de licitación (20 y 28, no un promedio histórico). Como resultado, el total mensual estimado de atención de fallas sube 15,1% frente al esquema anterior. Este total no incluye la gestión logística de materiales e insumos: al ser un cargo compartido con mantenimiento preventivo, se presenta y se compara por separado más adelante.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Mantenimiento preventivo — nueva línea de servicio</h2>
+      <div class="n">vigencia 2027–2028</div>
+    </div>
+    <p class="lede" style="max-width:70ch;">Junto a la atención de fallas, la licitación incorpora el mantenimiento preventivo bajo dos modalidades: el <b>Mantenimiento Integral</b>, que ya existía en el contrato anterior y ahora se reprecia según cálculo de APU, y el <b>Mantenimiento Esencial</b>, un servicio nuevo que no formaba parte del esquema previo.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="idx">01</div>
+        <h3>Mantenimiento Integral</h3>
+        <p>Servicio ya existente. El precio unitario por clasificación se recalculó con el análisis de precio unitario (APU), que ya incorpora un margen de utilidad del 30%. La licitación fija las cantidades mensuales para Gran Oriente: 2 P2, 3 P3, 23 B1, 3 B2 y 19 B3 — 50 mantenimientos integrales al mes.</p>
+      </div>
+      <div class="step">
+        <div class="idx">02</div>
+        <h3>Mantenimiento Esencial</h3>
+        <p>Servicio nuevo, agregado en esta licitación. Consiste solo en revisión, poda y limpieza del sitio, sin intervención de equipos, por lo que aplica un único precio para las 5 clasificaciones. Volumen: 54 mantenimientos mensuales. Precio, según APU, ya con 30% de utilidad: $627,58.</p>
+      </div>
+      <div class="step">
+        <div class="idx">03</div>
+        <h3>Diferencia con el margen de fallas</h3>
+        <p>A diferencia de la tarifa de atención de fallas —donde el margen aplicado sobre el costo es 40%—, los precios de mantenimiento preventivo (Integral y Esencial) se calcularon vía APU con un margen de utilidad de 30%, ya incluido en cada precio unitario mostrado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Mantenimiento Integral — precio unitario por clasificación</h2>
+      <div class="n">AÑO 2024–2026 vs. AÑO 2027–2028, según APU</div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Clase</th>
+          <th>Cantidad/mes</th>
+          <th>Precio anterior (2024–2026)</th>
+          <th>Precio propuesto (2027–2028, APU)</th>
+          <th>Incremento unitario</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="clase-tag"><span class="dot" style="background:var(--c-p2)"></span>P2</span></td>
+          <td>2</td>
+          <td>$660,70</td>
+          <td>$1.639,58</td>
+          <td class="margin-pos">+$978,88 · +148,2%</td>
+        </tr>
+        <tr>
+          <td><span class="clase-tag"><span class="dot" style="background:var(--c-p3)"></span>P3</span></td>
+          <td>3</td>
+          <td>$524,37</td>
+          <td>$1.545,74</td>
+          <td class="margin-pos">+$1.021,37 · +194,8%</td>
+        </tr>
+        <tr>
+          <td><span class="clase-tag"><span class="dot" style="background:var(--c-b1)"></span>B1</span></td>
+          <td>23</td>
+          <td>$429,81</td>
+          <td>$1.353,47</td>
+          <td class="margin-pos">+$923,66 · +214,9%</td>
+        </tr>
+        <tr>
+          <td><span class="clase-tag"><span class="dot" style="background:var(--c-b2)"></span>B2</span></td>
+          <td>3</td>
+          <td>$343,85</td>
+          <td>$1.158,28</td>
+          <td class="margin-pos">+$814,43 · +236,9%</td>
+        </tr>
+        <tr>
+          <td><span class="clase-tag"><span class="dot" style="background:var(--c-b3)"></span>B3</span></td>
+          <td>19</td>
+          <td>$272,89</td>
+          <td>$1.061,49</td>
+          <td class="margin-pos">+$788,60 · +289,0%</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>Total</td>
+          <td>50</td>
+          <td colspan="3"></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="bars">
+      <div class="bar-row">
+        <div class="name">P2</div>
+        <div class="bar-track">
+          <div class="bar-fill cost" style="width:40.3%;background:var(--c-p2)"></div>
+        </div>
+        <div class="bar-figs">anterior $660,70 · propuesto $1.639,58</div>
+      </div>
+      <div class="bar-row">
+        <div class="name">P3</div>
+        <div class="bar-track">
+          <div class="bar-fill cost" style="width:32.0%;background:var(--c-p3)"></div>
+        </div>
+        <div class="bar-figs">anterior $524,37 · propuesto $1.545,74</div>
+      </div>
+      <div class="bar-row">
+        <div class="name">B1</div>
+        <div class="bar-track">
+          <div class="bar-fill cost" style="width:26.2%;background:var(--c-b1)"></div>
+        </div>
+        <div class="bar-figs">anterior $429,81 · propuesto $1.353,47</div>
+      </div>
+      <div class="bar-row">
+        <div class="name">B2</div>
+        <div class="bar-track">
+          <div class="bar-fill cost" style="width:21.0%;background:var(--c-b2)"></div>
+        </div>
+        <div class="bar-figs">anterior $343,85 · propuesto $1.158,28</div>
+      </div>
+      <div class="bar-row">
+        <div class="name">B3</div>
+        <div class="bar-track">
+          <div class="bar-fill cost" style="width:16.6%;background:var(--c-b3)"></div>
+        </div>
+        <div class="bar-figs">anterior $272,89 · propuesto $1.061,49</div>
+      </div>
+    </div>
+    <p style="font-size:12.5px;color:var(--ink-soft);margin-top:10px;">La barra sombreada marca, a escala completa de $1.639,58 (P2 propuesto), cuánto representaba el precio anterior de cada clase; el resto es el aumento que introduce el nuevo cálculo APU.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Estructura de pago — mantenimiento preventivo</h2>
+    </div>
+    <div class="col-2">
+      <div class="fixed-panel">
+        <div class="label">Mantenimiento Esencial — mensual (nuevo servicio)</div>
+        <div class="amount">$33.889,32</div>
+        <div class="breakdown">
+          <div><span>54 mantenimientos × $627,58</span><span>$33.889,32</span></div>
+        </div>
+        <div class="breakdown" style="border-top:none;padding-top:0;margin-top:6px;">
+          <div><span>Precio por clasificación</span><span>único, todas las clases</span></div>
+        </div>
+      </div>
+      <div>
+        <p>El Mantenimiento Esencial no existía en el esquema anterior. Al tratarse únicamente de revisión, poda y limpieza —sin intervención de equipos— el precio no varía por clasificación: $627,58 por sitio, para las 54 mantenimientos mensuales pactados en la licitación.</p>
+        <p style="margin-bottom:0;">Este monto se suma al de Mantenimiento Integral; no lo reemplaza ni se solapa con él.</p>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-top:44px;">
+      <h2 style="font-size:18px;">Mantenimiento Integral — mensual</h2>
+      <div class="n">50 mantenimientos/mes, Gran Oriente</div>
+    </div>
+    <div class="col-2">
+      <div class="fixed-panel" style="background:var(--navy-soft);">
+        <div class="label">Monto mensual propuesto — Mantenimiento Integral</div>
+        <div class="amount">$62.689,34</div>
+        <div class="breakdown">
+          <div><span>P2 — 2 × $1.639,58</span><span>$3.279,16</span></div>
+          <div><span>P3 — 3 × $1.545,74</span><span>$4.637,22</span></div>
+          <div><span>B1 — 23 × $1.353,47</span><span>$31.129,81</span></div>
+          <div><span>B2 — 3 × $1.158,28</span><span>$3.474,84</span></div>
+          <div><span>B3 — 19 × $1.061,49</span><span>$20.168,31</span></div>
+        </div>
+        <div class="breakdown" style="border-top:none;padding-top:0;margin-top:6px;">
+          <div><span>Cantidades</span><span>fijadas por la licitación (Gran Oriente)</span></div>
+        </div>
+      </div>
+      <div>
+        <p>Las cantidades mensuales de Mantenimiento Integral no son un promedio: la licitación fija 2 P2, 3 P3, 23 B1, 3 B2 y 19 B3 para Gran Oriente, 50 mantenimientos en total. El monto propuesto se calcula directamente sobre esa distribución.</p>
+        <p>Con esa misma cantidad de 50 mantenimientos, pero a los precios anteriores (2024–2026), el costo hubiera sido $18.996,60. Es decir, el recálculo vía APU por sí solo —sin cambio de volumen— sube la factura de Integral en $43.692,74, +230,0%.</p>
+        <p style="margin-bottom:0;">El monto histórico de referencia, $25.539,62, correspondía a 60 mantenimientos mensuales para toda la gran región, sin desglose por clase; no es comparable en volumen con las 50 unidades ahora fijadas para Gran Oriente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Mantenimiento preventivo frente al esquema anterior</h2>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Concepto</th>
+          <th>Esquema anterior</th>
+          <th>Propuesta</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mantenimiento Integral — mensual</td>
+          <td>$25.539,62 (60 mant., toda la gran región)</td>
+          <td>$62.689,34 (50 mant.: 2 P2 · 3 P3 · 23 B1 · 3 B2 · 19 B3, Gran Oriente)</td>
+        </tr>
+        <tr>
+          <td>Mantenimiento Esencial — mensual</td>
+          <td>no existía</td>
+          <td>$33.889,32 (54 mant. × $627,58)</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>Total mantenimiento preventivo — mensual</td>
+          <td>$25.539,62</td>
+          <td>$96.578,66</td>
+        </tr>
+      </tfoot>
+    </table>
+    <div class="compare-note">
+      El aumento en mantenimiento preventivo tiene <b>dos orígenes distintos</b>. Primero, el recálculo vía APU de las 5 clasificaciones del Mantenimiento Integral, que sube cada precio unitario entre 148,2% (P2) y 289,0% (B3) frente al esquema 2024–2026, ya con el 30% de utilidad incluido — un margen menor al 40% aplicado en fallas. Aislando solo ese efecto de precio, sobre las mismas 50 unidades ahora fijadas para Gran Oriente, Integral pasaría de $18.996,60 a $62.689,34 (+230,0%). Segundo, la incorporación del Mantenimiento Esencial, un servicio de $33.889,32 mensuales que antes no se cobraba ni se prestaba. El monto histórico de referencia ($25.539,62, 60 mantenimientos) correspondía a un volumen y alcance distinto al de las 50 unidades ahora contratadas para Gran Oriente, por lo que la comparación directa entre ambos totales combina efecto de precio, de volumen y de un servicio nuevo, no solo un cobro mayor por el mismo trabajo.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Gestión logística, materiales y consumibles</h2>
+      <div class="n">cargo mensual único — aplica a fallas y mantenimiento preventivo</div>
+    </div>
+    <div class="col-2">
+      <div class="fixed-panel" style="background:var(--navy-soft);">
+        <div class="label">Gestión logística mensual (fallas + mantenimiento preventivo)</div>
+        <div class="amount">$40.000</div>
+        <div class="breakdown">
+          <div><span>Insumos para atención de fallas</span><span>incluido</span></div>
+          <div><span>Insumos para mantenimiento preventivo (Integral y Esencial)</span><span>incluido</span></div>
+        </div>
+      </div>
+      <div>
+        <p>Este cargo es único y mensual: cubre la gestión, compra y disponibilidad de todos los insumos y materiales que usa la operación completa, tanto en la atención de fallas (P2, P3, B1, B2, B3) como en el mantenimiento preventivo (Integral y Esencial). No se factura por separado dentro de cada línea de servicio ni se solapa con las tarifas de atención mostradas antes.</p>
+        <p>Antes existía una línea de gestión logística de $4.507,65 mensuales, asociada únicamente al esquema de fallas. No hay certeza de qué tan completo era su alcance real, y no existía una partida equivalente para mantenimiento preventivo. El nuevo monto de $40.000 se calcula para cubrir el abastecimiento completo de ambas líneas de servicio, no solo una parte de una de ellas.</p>
+        <p style="margin-bottom:0;">No lleva el margen del 40% aplicado en fallas ni el 30% aplicado en mantenimiento preventivo, porque no es costo de intervención: es un presupuesto de abastecimiento que se cobra aparte, a monto fijo, una sola vez al mes para toda la operación.</p>
+      </div>
+    </div>
+    <div class="compare-note">
+      El monto anterior de $4.507,65 solo se aplicaba a la atención de fallas y, hasta donde se tiene registro, no cubría todo el insumo requerido; mantenimiento preventivo no contaba con una partida propia de logística. La propuesta reemplaza esa partida por un único cargo de $40.000 mensuales que abastece ambas líneas de servicio a la vez. Por eso este incremento no debe leerse como parte del aumento de la tarifa de fallas ni de la de mantenimiento preventivo: es la cobertura real de un costo compartido que antes estaba incompleto.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Resumen general — fallas, mantenimiento preventivo y logística</h2>
+      <div class="n">pago mensual total propuesto</div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Concepto</th>
+          <th>Esquema anterior</th>
+          <th>Propuesta</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Atención de fallas — fijo P2/P3 + variable B1/B2/B3</td>
+          <td>$80.466,61</td>
+          <td>$92.624,00</td>
+        </tr>
+        <tr>
+          <td>Mantenimiento preventivo — Integral + Esencial</td>
+          <td>$25.539,62</td>
+          <td>$96.578,66</td>
+        </tr>
+        <tr>
+          <td>Gestión logística, materiales y consumibles (compartida)</td>
+          <td>$4.507,65</td>
+          <td>$40.000,00</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>Total mensual — fallas + mantenimiento preventivo + logística</td>
+          <td>$110.513,88</td>
+          <td>$229.202,66</td>
+        </tr>
+      </tfoot>
+    </table>
+    <div class="compare-note">
+      El total mensual propuesto, $229.202,66, representa un incremento de <b>+107,4%</b> frente al esquema anterior ($110.513,88). Ese aumento combina cuatro efectos distintos y no debe leerse como una sola tarifa más alta por el mismo trabajo: (1) en fallas, la corrección de la tarifa de B3 —que antes generaba pérdida— y el ajuste de las cantidades fijas de P2 y P3 a lo que exige el propio pliego de licitación, con un incremento de 15,1% sobre esa línea; (2) en mantenimiento preventivo, el recálculo vía APU del servicio Integral ya existente, que sube cada precio unitario entre 148,2% y 289,0% con un margen de 30% incluido; (3) la incorporación del Mantenimiento Esencial, un servicio nuevo de $33.889,32 mensuales que antes no existía; y (4) el reemplazo de una gestión logística parcial de $4.507,65 —que solo cubría fallas— por un cargo único de $40.000 mensuales que abastece de forma completa tanto fallas como mantenimiento preventivo.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Proyectos e Inversiones MV Miranda C.A. — Propuesta de tarifas, atención de fallas y mantenimiento preventivo (Integral y Esencial), incluida la gestión logística compartida de materiales e insumos — proyecto FLM, Telefónica Movistar. Cifras de volumen sobre el promedio mensual enero–agosto 2026 para fallas; mantenimiento preventivo según cantidades de licitación para Gran Oriente (50 Integral: 2 P2, 3 P3, 23 B1, 3 B2, 19 B3 — y 54 Esencial). Precios en dólares estadounidenses.
+  </div>
+</footer>
+
+</body>
+</html>
